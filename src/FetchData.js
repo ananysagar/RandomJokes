@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import './fetchDataUI.css'
+
 
 function FetchData() {
     const [data,setData] = useState([]);
@@ -20,7 +22,7 @@ function FetchData() {
 
         const displayJokes = data.map((random) =>{
             return (
-                <div key={random.id}>
+                <div key={random.id} className='joke'>
                     <h2>{random.value}</h2>
                 </div>
             );
@@ -34,7 +36,7 @@ function FetchData() {
         ) : (
             <div>
                 {displayJokes}
-                <button onClick={fetchJokes}>Get Another Joke</button>
+                <button className='button' onClick={fetchJokes}>Get Another Joke</button>
             </div>
         )} 
     </div>
